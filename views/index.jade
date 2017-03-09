@@ -1,0 +1,23 @@
+extends layout
+block contenido
+  div
+    h1(class="teal") Gestión de usuarios
+    a(href="/formulario", class="waves-effect waves-light btn") Insertar 
+    table(class="striped")
+      tr
+        th Nombre
+        th Apellido
+        th Edad
+        th Pais
+        th
+        th
+      for u in usuarios
+        tr 
+          td #{u.nombre}
+          td #{u.apellido}
+          td #{u.edad}
+          td #{u.pais}
+          td.
+            #[form(action="modificar" method="POST") #[input(type="hidden" name="_id" value="#{u._id}" )] #[input(type="hidden" name="nombre" value="#{u.nombre}" )]#[button(type="submit", class="waves-effect waves-light btn waves-light red") Modificar]]
+          td.
+            #[form(action="eliminar" method="POST") #[input(type="hidden" name="_id" value="#{u._id}" )] #[button(type="submit", class="waves-effect waves-light btn waves-light red") Eliminar]]

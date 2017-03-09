@@ -1,0 +1,22 @@
+extends layout
+block contenido
+  div(class="container")
+    h1(class="teal") Modificar dato de  usuario
+    form(action="usuario-modificado" method="post")
+      div(class="input-field")
+        label(for="nombre") Nombre
+        input(type="hidden" name="_id" id="_id" value="#{usuario._id}")
+        input(type="text" name="nombre" id="nombre" autofocus="true" value="#{usuario.nombre}")
+        
+      div(class="input-field")
+        label(for="apellido") Apellido
+        input(type="text" name="apellido" id="apellido" value="#{usuario.apellido}")
+
+      div(class="input-field")
+        label(for="edad") Edad
+        input(type="number" min="18" name="edad" id="edad" value="#{usuario.edad}")
+
+      div(class="input-field")
+        label(for="pais") Pais
+        input(type="text" name="pais" id="pais" value="#{usuario.pais}")
+        input(type="submit" class="waves-effect waves-light btn" value="Aceptar")
